@@ -24,7 +24,7 @@ mdc: true
 duration: 35min
 ---
 
-# Welcome to Aryan
+# Welcome to Hello
 
 Presentation slides for me
 
