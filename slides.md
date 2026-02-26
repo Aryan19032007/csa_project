@@ -47,9 +47,11 @@ Just an introductory slide
 
 ---
 transition: slide-up
+
+layout: two-cols-header
 ---
 
-# Aim and Intent
+# Introduction
 
 <audio id="transitionSound" src="/swoosh.mp3" style="display:none"></audio>
 
@@ -76,20 +78,76 @@ watch(
 
 ---
 transition: fade
+layout: two-cols-header
 ---
 
-# Topic Distribution
+# Unit Distribution
 
+::left::
 
+## Unit 1
 
----
-transition: fade
----
+### Architecture Overview and System Model
 
-# Topic Distribution
+*Covered by Aryan Nagdawade*
+
+- Key characteristics
+- NUMA system structure
+- NUMA modes
+- Local vs emote memory access
+- Comparison with UMA
+
+::right::
+
+## Unit 2 
+
+### Hardware Organisation and Interconnection
+
+*Covered by Praveen Parakh*
+
+- Multi-processor configuration
+- Local memory controllers
+- Interconnection network
+- Address, data and control nodes
+- Cache organisation
 
 ---
 transition: slide-right
+layout: two-cols-header
+---
+
+# Unit Distribution
+
+::left::
+
+## Unit 3
+
+### Memory Hierarchy and Performance
+
+*Covered by Het Dharmendrabhai Dhinoja*
+
+- Memory hierarchy
+- SRAM vs DRAM
+- Memory latency difference
+- Performance comparison with NUMA & UMA
+- Bottlenecks
+
+::right::
+
+## Unit 4
+
+### OS Support, Scheduling and Applications
+
+*Covererd by Suyash Chandel*
+
+- NUMA-aware Operating Systems
+- Process and thread placement
+- Memory allocation policies
+- Role of DMA in NUMA
+- Real world applications
+
+---
+transition: slide-down
 ---
 
 # Workflow and Resources
