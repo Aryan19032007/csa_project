@@ -1,60 +1,12 @@
 ---
-# try also 'default' to start simple
 theme: seriph
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-background: https://etimg.etb2bimg.com/photo/109156591.cms
-# some information about your slides (markdown enabled)
-title: Our Csa Project :D
-info: |
-  ## Slidev Starter Template
-  Presentation slides for mw
-
-  Learn more at [Sli.dev](https://sli.dev)
-# apply UnoCSS classes to the current slide
-class: text-center
-# https://sli.dev/features/drawing
-drawings:
-  persist: false
-# slide transition: https://sli.dev/guide/animations.html#slide-transitions
+class: relative text-center
 transition: slide-left
-# enable MDC Syntax: https://sli.dev/features/mdc
 mdc: true
-# duration of the presentation
 duration: 35min
 ---
 
-<h1 style="color:Red;">Non-uniform Memory Access</h1>
-
-<h2 style="color:yellow">Memory design with a twist</h2>
-
-<div style="color:orange;">
-  <br>Presented to you by~
-  
-<br>•Aryan Nagdawane<br>•Suyash Chandel<br>•Praveen Parakh<br>•Het DharmendraBhai Dhinoja
-</div>
-
-
-
-<div style="color:pink;" @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
-  Let's see what its all about<carbon:arrow-right />
-</div>
-
-
-<!--
-Just an introductory slide
--->
-
----
-transition: slide-up
-
-layout: two-cols-header
----
-
-# Introduction
-
-<audio id="transitionSound" src="/swoosh.mp3" style="display:none"></audio>
-
+<audio id="slideSound" src="/swoosh.mp3" preload="auto"></audio>
 
 <script setup>
 import { watch } from 'vue'
@@ -64,17 +16,60 @@ const nav = useNav()
 
 watch(
   () => nav.currentPage.value,
-  (page) => {
-    if (page === 2) {
-      const audio = document.getElementById('transitionSound')
-      if (audio) {
-        audio.currentTime = 0
-        audio.play().catch(() => {})
-      }
+  () => {
+    const audio = document.getElementById('slideSound')
+    if (audio) {
+      audio.currentTime = 0
+      audio.play().catch(() => {})
     }
   }
 )
 </script>
+
+<div class="absolute inset-0 z-0">
+  <video
+    src="/cpu.mp4"
+    autoplay
+    muted
+    loop
+    playsinline
+    class="w-full h-full object-cover"
+  ></video>
+</div>
+
+<div class="absolute inset-0 bg-black opacity-40 z-10"></div>
+
+<div class="relative z-20 flex flex-col items-center justify-center h-full text-white">
+
+  <h1 class="text-5xl font-bold text-red-500">
+    Non-uniform Memory Access
+  </h1>
+
+  <h2 class="text-2xl mt-4 text-yellow-400">
+    Memory design with a twist
+  </h2>
+
+  <div class="mt-6 text-orange-300">
+    Presented to you by
+    <br> Aryan Nagdawane
+    <br> Suyash Chandel
+    <br> Praveen Parakh
+    <br> Het DharmendraBhai Dhinoja
+  </div>
+
+</div>
+<!--
+Just an introductory slide
+-->
+
+---
+transition: slide-up
+layout: two-cols-header
+---
+
+
+
+# Introduction
 
 ---
 transition: fade
@@ -89,7 +84,7 @@ layout: two-cols-header
 
 ### Architecture Overview and System Model
 
-*Covered by Aryan Nagdawade*
+*Covered by Aryan Nagdawane*
 
 - Key characteristics
 - NUMA system structure
@@ -110,6 +105,7 @@ layout: two-cols-header
 - Interconnection network
 - Address, data and control nodes
 - Cache organisation
+
 
 ---
 transition: slide-right
