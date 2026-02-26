@@ -6,7 +6,37 @@ mdc: true
 duration: 35min
 ---
 
-<audio id="slideSound" src="/swoosh.mp3" preload="auto"></audio>
+<h1 style="color:Red;">Non-uniform Memory Access</h1>
+
+<h2 style="color:yellow">Memory design with a twist</h2>
+
+<div style="color:orange;">
+  <br>Presented to you by~
+  
+<br>•Aryan Nagdawane<br>•Suyash Chandel<br>•Praveen Parakh<br>•Het DharmendraBhai Dhinoja
+</div>
+
+
+
+<div style="color:pink;" @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
+  Let's see what its all about<carbon:arrow-right />
+</div>
+
+
+<!--
+Just an introductory slide
+-->
+
+---
+transition: slide-up
+
+layout: two-cols-header
+---
+
+# Introduction
+
+<audio id="transitionSound" src="/swoosh.mp3" style="display:none"></audio>
+
 
 <script setup>
 import { watch } from 'vue'
