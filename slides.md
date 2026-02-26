@@ -36,11 +36,6 @@ duration: 35min
 
 
 
-<div style="color:pink;" @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
-  Let's see what its all about<carbon:arrow-right />
-</div>
-
-
 <!--
 Just an introductory slide
 -->
@@ -55,6 +50,41 @@ layout: two-cols-header
 
 <audio id="transitionSound" src="/swoosh.mp3" style="display:none"></audio>
 
+::left::
+
+### What is NUMA?
+
+NUMA stands for Non-Uniform Memory Access.
+
+- Memory architecture used in multiprocessors, where access time depends on memory location
+
+- Based on fact that processor can access own local memory faster than non-local memory
+
+- Composed of 'nodes', each with core(s) and local memory, interconnected with each other
+
+::right::
+
+#[](https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/7ygK/image/ORbE4zzDNbyYYLUS2hJgbRsTpIc.png)
+
+### Why we chose it?
+
+- Reasonably easy to grasp understanding of
+- Clever application of parallelism
+- Extensively used in modern OSes
+
+### What are we aiming for?
+
+To understand and explain:
+
+- How NUMA works
+- What the benefits and drawbacks of how NUMA works
+- How modern OSes implement NUMA
+
+<style>
+  .two-cols-header {
+    column-gap: 30px;
+  }
+</style>
 
 <script setup>
 import { watch } from 'vue'
