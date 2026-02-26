@@ -20,7 +20,7 @@ const props = defineProps({
 .glitch-text {
   position: relative;
   display: inline-block;
-  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-family: 'San Francisco', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-weight: 700;
   letter-spacing: -0.03em;
 }
