@@ -5,38 +5,9 @@ transition: slide-left
 mdc: true
 duration: 35min
 ---
-
-<h1 style="color:Red;">Non-uniform Memory Access</h1>
-
-<h2 style="color:yellow">Memory design with a twist</h2>
-
-<div style="color:orange;">
-  <br>Presented to you by~
-  
-<br>•Aryan Nagdawane<br>•Suyash Chandel<br>•Praveen Parakh<br>•Het DharmendraBhai Dhinoja
-</div>
-
-
-
-<div style="color:pink;" @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
-  Let's see what its all about<carbon:arrow-right />
-</div>
-
-
-<!--
-Just an introductory slide
--->
-
----
-transition: slide-up
-
-layout: two-cols-header
----
-
 # Introduction
 
-<audio id="transitionSound" src="/swoosh.mp3" style="display:none"></audio>
-
+<audio id="slideSound" src="/swoosh.mp3" preload="auto"></audio>
 
 <script setup>
 import { watch } from 'vue'
@@ -56,6 +27,7 @@ watch(
 )
 </script>
 
+<!-- Background Video -->
 <div class="absolute inset-0 z-0">
   <video
     src="/cpu.mp4"
@@ -67,24 +39,31 @@ watch(
   ></video>
 </div>
 
+<!-- Dark Overlay -->
 <div class="absolute inset-0 bg-black opacity-40 z-10"></div>
 
-<div class="relative z-20 flex flex-col items-center justify-center h-full text-white">
+<!-- Text Content -->
+<div class="relative z-20 flex flex-col justify-center items-center h-full">
 
-  <h1 class="text-5xl font-bold text-red-500">
-    Non-uniform Memory Access
-  </h1>
+  <h1 style="color:Red;">Non-uniform Memory Access</h1>
 
-  <h2 class="text-2xl mt-4 text-yellow-400">
-    Memory design with a twist
-  </h2>
+  <h2 style="color:yellow">Memory design with a twist</h2>
 
-  <div class="mt-6 text-orange-300">
-    Presented to you by
-    <br> Aryan Nagdawane
-    <br> Suyash Chandel
-    <br> Praveen Parakh
-    <br> Het DharmendraBhai Dhinoja
+  <div style="color:orange;">
+    <br>Presented to you by~
+    <br>•Aryan Nagdawane
+    <br>•Suyash Chandel
+    <br>•Praveen Parakh
+    <br>•Het DharmendraBhai Dhinoja
+  </div>
+
+  <div
+    style="color:pink;"
+    @click="$slidev.nav.next"
+    class="mt-12 py-1 cursor-pointer"
+    hover:bg="white op-10"
+  >
+    Let's see what its all about <carbon:arrow-right />
   </div>
 
 </div>
