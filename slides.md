@@ -54,7 +54,7 @@ watch(
     <br>•Aryan Nagdawane
     <br>•Suyash Chandel
     <br>•Praveen Parakh
-    <br>•Het DharmendraBhai Dhinoja
+    <br>•Het Dharmendrabhai Dhinoja
   </div>
 
   <div
