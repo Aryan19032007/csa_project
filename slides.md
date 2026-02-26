@@ -70,19 +70,19 @@ transition: slide-up
 <div style="display: grid; grid-template-columns: 1fr 1px 1fr; gap: 2rem; flex: 1; overflow: hidden;">
 <div style="position: relative; overflow-y: auto;">
 <div style="position: absolute; top: -8px; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #00f0ff, transparent);"></div>
-<div style="padding-top: 1rem;">
-<div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+<div style="padding-top: 0.8rem;">
+<div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.4rem;">
 <span class="tag tag-cyan">Overview</span>
 </div>
-<h2 style="font-family: var(--slidev-font-sans); font-size: 1rem; font-weight: 600; color: rgba(0,240,255,0.9); margin-bottom: 0.4rem;">What is NUMA?</h2>
-<div style="color: var(--c-text-dim); font-size: 0.75rem; margin-bottom: 0.6rem;">NUMA stands for Non-Uniform Memory Access.</div>
-<ul class="styled-list">
-<li>Memory architecture used in multiprocessors, where access time depends on memory location</li>
-<li>Based on fact that processor can access own local memory faster than non-local memory</li>
-<li>Composed of 'nodes', each with core(s) and local memory, interconnected with each other</li>
+<h2 style="font-family: var(--slidev-font-sans); font-size: 0.95rem; font-weight: 600; color: rgba(0,240,255,0.9); margin-bottom: 0.3rem;">What is NUMA?</h2>
+<div style="color: var(--c-text-dim); font-size: 0.7rem; margin-bottom: 0.4rem;">NUMA stands for Non-Uniform Memory Access.</div>
+<ul class="styled-list" style="font-size: 0.75rem;">
+<li style="margin-bottom: 0.2rem;">Memory architecture used in multiprocessors, where access time depends on memory location</li>
+<li style="margin-bottom: 0.2rem;">Based on fact that processor can access own local memory faster than non-local memory</li>
+<li style="margin-bottom: 0.2rem;">Composed of 'nodes', each with core(s) and local memory, interconnected with each other</li>
 </ul>
-<div style="margin-top: 0.6rem;">
-<img src="https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/7ygK/image/ORbE4zzDNbyYYLUS2hJgbRsTpIc.png" style="max-width: 100%; max-height: 100px; object-fit: contain; border: 1px solid rgba(0,240,255,0.1); border-radius: 2px;" />
+<div style="margin-top: 0.4rem;">
+<img src="https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/7ygK/image/ORbE4zzDNbyYYLUS2hJgbRsTpIc.png" style="max-width: 100%; max-height: 80px; object-fit: contain; border: 1px solid rgba(0,240,255,0.1); border-radius: 2px;" />
 </div>
 </div>
 </div>
