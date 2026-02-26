@@ -26,12 +26,21 @@ html, body, #app, #slide-content {
   background: var(--c-bg) !important;
 }
 
+/* Kill ALL default Slidev theme backgrounds */
+*,
+*::before,
+*::after {
+  --slidev-theme-primary: #050508 !important;
+}
+
 .slidev-layout {
   background: var(--c-bg) !important;
   color: var(--c-text) !important;
   font-family: 'Playfair Display', serif !important;
   overflow: hidden !important;
   position: relative !important;
+  height: 100% !important;
+  width: 100% !important;
 }
 
 .slidev-layout h1,
@@ -54,6 +63,40 @@ html, body, #app, #slide-content {
 
 .slidev-page, .slidev-slides, .slide-content {
   background: var(--c-bg) !important;
+}
+
+/* Force dark background on every possible Slidev wrapper */
+.slidev-page .slidev-layout.default,
+.slidev-page .slidev-layout.center,
+.slidev-page .slidev-layout.cover,
+.slidev-page .slidev-layout.intro,
+.slidev-page .slidev-layout[class] {
+  background: var(--c-bg) !important;
+}
+
+/* Kill any Slidev top/bottom bars or colored strips */
+.slidev-layout > *:first-child {
+  z-index: 1;
+}
+
+/* Override any accent/primary color variables Slidev may inject */
+:root {
+  --slidev-theme-primary: #050508 !important;
+  --slidev-theme-cover-bg: #050508 !important;
+  --slidev-theme-accents-teal: #050508 !important;
+  --slidev-theme-accents-vulcan: #050508 !important;
+}
+
+/* Force-kill the colored top bar/border that some Slidev themes inject */
+.slidev-layout > div:first-child,
+.slidev-page .slidev-layout > div:first-child {
+  border-top: none !important;
+}
+
+/* Nuke any pseudo-element decorations on the page wrapper */
+.slidev-page::before,
+.slidev-page::after {
+  display: none !important;
 }
 
 /* ---- FILM GRAIN OVERLAY (all slides) ---- */
