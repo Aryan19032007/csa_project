@@ -250,3 +250,19 @@ transition: slide-down
 ---
 
 # Summary
+
+In essence,
+
+- NUMA is worth researching about by virtue of being:
+  - An interesting application of multiprocessing
+  - Utilized in modern operating systems
+  - Openly accessible and documented
+  - A relatively easy-to-understand implementation
+
+- Following topics are to be covered:
+  - Architecture Overview and System Model
+  - Hardware Organisation and Interconnection
+  - Memory Hierarchy and Performance
+  - OS Support, Scheduling and Applications
+
+
