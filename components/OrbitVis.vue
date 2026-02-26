@@ -9,11 +9,16 @@ onMounted(() => {
   const ctx = el.getContext('2d')
   
   const resize = () => {
-    el.width = el.offsetWidth * 2
-    el.height = el.offsetHeight * 2
+    const W = el.width = el.offsetWidth * 2
+    const H = el.height = el.offsetHeight * 2
+    if (W === 0 || H === 0) return false
     ctx.scale(2, 2)
+    return true
   }
-  resize()
+  
+  if (!resize()) {
+    setTimeout(() => resize(), 100)
+  }
   
   const w = () => el.width / 2
   const h = () => el.height / 2
@@ -23,7 +28,13 @@ onMounted(() => {
   function draw() {
     const W = w()
     const H = h()
-    ctx.clearRect(0, 0, W, H)
+    if (W === 0) {
+      requestAnimationFrame(draw)
+      return
+    }
+
+    ctx.fillStyle = '#050508'
+    ctx.fillRect(0, 0, W, H)
     
     // Orbiting rings
     const cx = W / 2
@@ -84,7 +95,7 @@ onMounted(() => {
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.7;
+  opacity: 1;
   pointer-events: none;
 }
 </style>

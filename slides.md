@@ -18,8 +18,8 @@ fonts:
 
 <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden; background: #050508; z-index: 10;">
 <NodeGraph />
-<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 50% 40%, rgba(0,240,255,0.06) 0%, transparent 60%);"></div>
-<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 70% 80%, rgba(255,0,60,0.04) 0%, transparent 50%);"></div>
+<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 50% 40%, rgba(0,240,255,0.06) 0%, rgba(0,240,255,0) 60%); pointer-events: none;"></div>
+<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 70% 80%, rgba(255,0,60,0.04) 0%, rgba(255,0,60,0) 50%); pointer-events: none;"></div>
 <GridOverlay />
 <div style="position: relative; z-index: 20; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; height: 100%; padding: 4rem 5rem;">
 <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(0,240,255,0.4); margin-bottom: 2rem;">
@@ -53,11 +53,11 @@ Just an introductory slide
 transition: slide-up
 ---
 
-<div class="absolute inset-0 overflow-hidden" style="background: #050508; z-index: 10;">
+<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden; background: #050508; z-index: 10;">
 <MatrixRain />
-<div class="absolute inset-0" style="background: radial-gradient(ellipse at 30% 50%, rgba(180,0,255,0.05) 0%, transparent 60%);"></div>
+<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 30% 50%, rgba(180,0,255,0.05) 0%, rgba(180,0,255,0) 60%); pointer-events: none;"></div>
 <GridOverlay />
-<div class="relative z-20 flex flex-col h-full" style="padding: 3rem 5rem;">
+<div style="position: relative; z-index: 20; display: flex; flex-direction: column; height: 100%; padding: 3rem 5rem;">
 <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.8rem;">
 <div>
 <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(0,240,255,0.3);">Section</div>
@@ -230,11 +230,11 @@ transition: slide-left
 transition: slide-down
 ---
 
-<div class="absolute inset-0 overflow-hidden" style="background: #050508; z-index: 10;">
+<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden; background: #050508; z-index: 10;">
 <OrbitVis />
-<div class="absolute inset-0" style="background: radial-gradient(ellipse at 50% 50%, rgba(0,240,255,0.05) 0%, transparent 60%);"></div>
+<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 50% 50%, rgba(0,240,255,0.05) 0%, rgba(0,240,255,0) 60%); pointer-events: none;"></div>
 <GridOverlay />
-<div class="relative z-20 flex flex-col h-full" style="padding: 3rem 5rem;">
+<div style="position: relative; z-index: 20; display: flex; flex-direction: column; height: 100%; padding: 3rem 5rem;">
 <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.8rem;">
 <div>
 <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(0,240,255,0.3);">Process</div>
@@ -289,11 +289,11 @@ transition: slide-down
 transition: slide-down
 ---
 
-<div class="absolute inset-0 overflow-hidden" style="background: #050508; z-index: 10;">
+<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden; background: #050508; z-index: 10;">
 <NodeGraph />
-<div class="absolute inset-0" style="background: radial-gradient(ellipse at 50% 50%, rgba(255,0,60,0.04) 0%, transparent 50%), radial-gradient(ellipse at 30% 30%, rgba(0,240,255,0.04) 0%, transparent 50%);"></div>
+<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 50% 50%, rgba(255,0,60,0.04) 0%, rgba(255,0,60,0) 50%), radial-gradient(ellipse at 30% 30%, rgba(0,240,255,0.04) 0%, rgba(0,240,255,0) 50%); pointer-events: none;"></div>
 <GridOverlay />
-<div class="relative z-20 flex flex-col justify-center items-center h-full text-center" style="padding: 3rem 5rem;">
+<div style="position: relative; z-index: 20; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; text-align: center; padding: 3rem 5rem;">
 <GlitchText text="Summary" tag="h1" style="font-size: 2.8rem; font-weight: 700; color: #e8e8f0;" />
 <div style="width: 120px; height: 2px; background: linear-gradient(90deg, transparent, #00f0ff, #ff003c, transparent); margin: 1.5rem auto;"></div>
 
