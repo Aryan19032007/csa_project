@@ -213,10 +213,37 @@ layout: two-cols-header
 
 ---
 transition: slide-down
+layout: two-cols
 ---
 
-# Workflow and Resources
+::left::
 
+## Workflow
+
+Topics to be covered in order:
+- Prerequisite: Understanding of basic CSA and virtual memory concepts
+- Introduction to parallelism
+- Shortcomings of traditional UMA
+- Architecture behind NUMA
+- Memory placement policies
+- Possible optimizations
+- Performance impacts
+- Applications in systems 
+
+::right::
+
+## References
+
+- Thomas, Gael. "Non uniform memory access", Universite Paris-Saclay. https://cs.ip-paris.fr/courses/chps/paam/cours/05-numa.pdf
+- Lamater, Christopher. "NUMA (Non-Uniform Memory Access): An Overview", ResearchGate. https://www.researchgate.net/publication/261849905_NUMA_Non-Uniform_Memory_Access_An_Overview
+- Unknown Author(s). "numa(7) - Linux manual page", Linux/UNIX system programming training. https://man7.org/linux/man-pages/man7/numa.7.html
+- van Riel, Rik. "Automatic NUMA Balancing", Red Hat. https://events.static.linuxfound.org/sites/events/files/slides/summit2014_riel_chegu_w_0340_automatic_numa_balancing_0.pdf
+
+<style>
+  .two-cols-header {
+    column-gap: 30px;
+  }
+</style>
 
 ---
 transition: slide-down
