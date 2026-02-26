@@ -12,7 +12,7 @@ transition: fade
 mdc: true
 duration: 35min
 fonts:
-  sans: 'San Francisco, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
+  sans: 'Playfair Display, serif'
   mono: 'JetBrains Mono'
 ---
 
