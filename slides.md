@@ -80,10 +80,70 @@ layout: two-cols-header
 
 # Introduction
 
+::left::
+
+### What is NUMA?
+
+NUMA stands for Non-Uniform Memory Access.
+
+- Memory architecture used in multiprocessors, where access time depends on memory location
+
+- Based on fact that processor can access own local memory faster than non-local memory
+
+- Composed of 'nodes', each with core(s) and local memory, interconnected with each other
+
+![](https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/7ygK/image/ORbE4zzDNbyYYLUS2hJgbRsTpIc.png)
+
+
+::right::
+
+#[](https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/7ygK/image/ORbE4zzDNbyYYLUS2hJgbRsTpIc.png)
+
+### Why we chose it?
+
+- Reasonably easy to grasp understanding of
+- Clever application of parallelism
+- Extensively used in modern OSes
+
+### What are we aiming for?
+
+To understand and explain:
+
+- How NUMA works
+- What the benefits and drawbacks of how NUMA works
+- How modern OSes implement NUMA
+
+<style>
+  .two-cols-header {
+    column-gap: 30px;
+  }
+</style>
+
+<script setup>
+import { watch } from 'vue'
+import { useNav } from '@slidev/client'
+
+const nav = useNav()
+
+watch(
+  () => nav.currentPage.value,
+  (page) => {
+    if (page === 2) {
+      const audio = document.getElementById('transitionSound')
+      if (audio) {
+        audio.currentTime = 0
+        audio.play().catch(() => {})
+      }
+    }
+  }
+)
+</script>
+
 ---
 transition: fade
 layout: two-cols-header
 ---
+
 
 # Unit Distribution
 
