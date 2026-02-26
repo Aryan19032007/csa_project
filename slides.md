@@ -62,7 +62,7 @@ NUMA stands for Non-Uniform Memory Access.
 
 - Composed of 'nodes', each with core(s) and local memory, interconnected with each other
 
-<img src="https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/7ygK/image/ORbE4zzDNbyYYLUS2hJgbRsTpIc.png" class="h-50 mx-auto rounded shadow-lg" />
+<img src="https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/7ygK/image/ORbE4zzDNbyYYLUS2hJgbRsTpIc.png" class="max-h-30 mx-auto -mt-2 rounded shadow-lg" />
 
 
 ::right::
@@ -85,6 +85,17 @@ To understand and explain:
 <style>
   .two-cols-header {
     column-gap: 30px;
+  }
+  .two-cols-header h1 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .two-cols-header h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .two-cols-header li {
+    margin-bottom: 2px;
   }
 </style>
 
