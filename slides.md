@@ -8,12 +8,12 @@ info: |
   Learn more at [Sli.dev](https://sli.dev)
 drawings:
   persist: false
-transition: fade
+transition: slide-right
 mdc: true
 duration: 35min
 fonts:
-  sans: 'Playfair Display, serif'
-  mono: 'JetBrains Mono'
+  sans: "Playfair Display, serif"
+  mono: "JetBrains Mono"
 ---
 
 <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden; background: #050508; z-index: 10;">
@@ -33,12 +33,12 @@ CSA Project // Computer System Architecture
 Presented to you by:
 </div>
 
-<div style="color: rgba(0,240,255,0.7); font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; margin-top: 0.5rem;">
+<div style="color: rgba(0,240,255,0.7); font-family: 'JetBrains Mono', monospace; font-size: 1rem; margin-top: 0.5rem;">
 
 - Aryan Nagdawane
 - Suyash Chandel
 - Praveen Parakh
-- Het DharmendraBhai Dhinoja
+- Het Dharmendrabhai Dhinoja
 
 </div>
 </div>
@@ -71,18 +71,15 @@ transition: slide-up
 <div style="position: relative; overflow-y: auto;">
 <div style="position: absolute; top: -8px; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #00f0ff, transparent);"></div>
 <div style="padding-top: 0.8rem;">
-<div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.4rem;">
-<span class="tag tag-cyan">Overview</span>
-</div>
-<h2 style="font-family: var(--slidev-font-sans); font-size: 0.95rem; font-weight: 600; color: rgba(0,240,255,0.9); margin-bottom: 0.3rem;">What is NUMA?</h2>
-<div style="color: var(--c-text-dim); font-size: 0.7rem; margin-bottom: 0.4rem;">NUMA stands for Non-Uniform Memory Access.</div>
-<ul class="styled-list" style="font-size: 0.75rem;">
-<li style="margin-bottom: 0.2rem;">Memory architecture used in multiprocessors, where access time depends on memory location</li>
-<li style="margin-bottom: 0.2rem;">Based on fact that processor can access own local memory faster than non-local memory</li>
-<li style="margin-bottom: 0.2rem;">Composed of 'nodes', each with core(s) and local memory, interconnected with each other</li>
+<h2 v-click style="font-family: var(--slidev-font-sans); font-size: 1rem; font-weight: 600; color: rgba(0,240,255,0.9); margin-bottom: 0.3rem;">What is NUMA?</h2>
+<div v-click style="color: var(--c-text-dim); font-size: 0.85rem; margin-bottom: 0.4rem;">NUMA stands for Non-Uniform Memory Access.</div>
+<ul class="styled-list">
+<li v-click style="margin-bottom: 0.2rem;">Memory architecture used in multiprocessors, where access time depends on memory location</li>
+<li v-click style="margin-bottom: 0.2rem;">Based on fact that processor can access own local memory faster than non-local memory</li>
+<li v-click style="margin-bottom: 0.2rem;">Composed of 'nodes', each with core(s) and local memory, interconnected with each other</li>
 </ul>
 <div style="margin-top: 0.4rem;">
-<img src="https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/7ygK/image/ORbE4zzDNbyYYLUS2hJgbRsTpIc.png" style="max-width: 100%; max-height: 80px; object-fit: contain; border: 1px solid rgba(0,240,255,0.1); border-radius: 2px;" />
+
 </div>
 </div>
 </div>
@@ -90,21 +87,19 @@ transition: slide-up
 <div style="position: relative; overflow-y: auto;">
 <div style="position: absolute; top: -8px; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #ff003c, transparent);"></div>
 <div style="padding-top: 1rem;">
-<div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
-<span class="tag tag-red">Motivation</span>
-</div>
-<h2 style="font-family: var(--slidev-font-sans); font-size: 1rem; font-weight: 600; color: rgba(255,0,60,0.9); margin-bottom: 0.4rem;">Why we chose it?</h2>
-<ul class="styled-list">
-<li>Reasonably easy to grasp understanding of</li>
-<li>Clever application of parallelism</li>
-<li>Extensively used in modern OSes</li>
+
+<h2 v-click style="font-family: var(--slidev-font-sans); font-size: 1rem; font-weight: 600; color: rgba(255,0,60,0.9); margin-bottom: 0.4rem;">Why we chose it?</h2>
+<ul class="styled-list" >
+<li v-click>Reasonably easy to grasp understanding of</li>
+<li v-click>Clever application of parallelism</li>
+<li v-click>Extensively used in modern OSes</li>
 </ul>
-<h2 style="font-family: var(--slidev-font-sans); font-size: 1rem; font-weight: 600; color: rgba(255,0,60,0.9); margin-bottom: 0.4rem; margin-top: 1rem;">What are we aiming for?</h2>
-<div style="color: var(--c-text-dim); font-size: 0.75rem; margin-bottom: 0.5rem;">To understand and explain:</div>
+<h2 v-click style="font-family: var(--slidev-font-sans); font-size: 1rem; font-weight: 600; color: rgba(255,0,60,0.9); margin-bottom: 0.4rem; margin-top: 1rem;">What are we aiming for?</h2>
+<div v-click style="color: var(--c-text-dim); font-size: 0.85rem; margin-bottom: 0.5rem;">To understand and explain:</div>
 <ul class="styled-list">
-<li>How NUMA works</li>
-<li>What the benefits and drawbacks of how NUMA works</li>
-<li>How modern OSes implement NUMA</li>
+<li v-click>How NUMA works</li>
+<li v-click>What the benefits and drawbacks of how NUMA works</li>
+<li v-click>How modern OSes implement NUMA</li>
 </ul>
 </div>
 </div>
@@ -134,16 +129,16 @@ transition: fade
 <div style="position: absolute; top: -8px; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #00f0ff, transparent);"></div>
 <div style="padding-top: 1.5rem;">
 <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.8rem;">
-<span class="tag tag-cyan">Unit 1</span>
+<span v-click class="tag tag-cyan">Unit 1</span>
 </div>
-<h2 style="font-family: var(--slidev-font-sans); font-size: 1.1rem; font-weight: 600; color: rgba(0,240,255,0.9); margin-bottom: 0.3rem;">Architecture Overview and System Model</h2>
-<div style="font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: rgba(0,240,255,0.35); letter-spacing: 0.05em; margin-bottom: 1.2rem; font-style: italic;">Covered by Aryan Nagdawane</div>
+<h2 v-after style="font-family: var(--slidev-font-sans); font-size: 1rem; font-weight: 600; color: rgba(0,240,255,0.9); margin-bottom: 0.3rem;">Architecture Overview and System Model</h2>
+<div v-after style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: rgba(0,240,255,0.35); letter-spacing: 0.05em; margin-bottom: 1.2rem; font-style: italic;">Covered by Aryan Nagdawane</div>
 <ul class="styled-list">
-<li>Key characteristics</li>
-<li>NUMA system structure</li>
-<li>NUMA modes</li>
-<li>Local vs emote memory access</li>
-<li>Comparison with UMA</li>
+<li v-click>Key characteristics</li>
+<li v-click>NUMA system structure</li>
+<li v-click>NUMA modes</li>
+<li v-click>Local vs emote memory access</li>
+<li v-click>Comparison with UMA</li>
 </ul>
 </div>
 </div>
@@ -152,16 +147,16 @@ transition: fade
 <div style="position: absolute; top: -8px; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #ff003c, transparent);"></div>
 <div style="padding-top: 1.5rem;">
 <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.8rem;">
-<span class="tag tag-red">Unit 2</span>
+<span v-click class="tag tag-red">Unit 2</span>
 </div>
-<h2 style="font-family: var(--slidev-font-sans); font-size: 1.1rem; font-weight: 600; color: rgba(255,0,60,0.9); margin-bottom: 0.3rem;">Hardware Organisation and Interconnection</h2>
-<div style="font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: rgba(255,0,60,0.35); letter-spacing: 0.05em; margin-bottom: 1.2rem; font-style: italic;">Covered by Praveen Parakh</div>
+<h2 v-after style="font-family: var(--slidev-font-sans); font-size: 1rem; font-weight: 600; color: rgba(255,0,60,0.9); margin-bottom: 0.3rem;">Hardware Organisation and Interconnection</h2>
+<div v-after style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: rgba(255,0,60,0.35); letter-spacing: 0.05em; margin-bottom: 1.2rem; font-style: italic;">Covered by Praveen Parakh</div>
 <ul class="styled-list">
-<li>Multi-processor configuration</li>
-<li>Local memory controllers</li>
-<li>Interconnection network</li>
-<li>Address, data and control nodes</li>
-<li>Cache organisation</li>
+<li v-click>Multi-processor configuration</li>
+<li v-click>Local memory controllers</li>
+<li v-click>Interconnection network</li>
+<li v-click>Address, data and control nodes</li>
+<li v-click>Cache organisation</li>
 </ul>
 </div>
 </div>
@@ -190,16 +185,16 @@ transition: slide-left
 <div style="position: absolute; top: -8px; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #b400ff, transparent);"></div>
 <div style="padding-top: 1.5rem;">
 <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.8rem;">
-<span class="tag tag-purple">Unit 3</span>
+<span v-click class="tag tag-purple">Unit 3</span>
 </div>
-<h2 style="font-family: var(--slidev-font-sans); font-size: 1.1rem; font-weight: 600; color: rgba(180,0,255,0.9); margin-bottom: 0.3rem;">Memory Hierarchy and Performance</h2>
-<div style="font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: rgba(180,0,255,0.35); letter-spacing: 0.05em; margin-bottom: 1.2rem; font-style: italic;">Covered by Het Dharmendrabhai Dhinoja</div>
+<h2 v-after style="font-family: var(--slidev-font-sans); font-size: 1rem; font-weight: 600; color: rgba(180,0,255,0.9); margin-bottom: 0.3rem;">Memory Hierarchy and Performance</h2>
+<div v-after style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: rgba(180,0,255,0.6); letter-spacing: 0.05em; margin-bottom: 1.2rem; font-style: italic;">Covered by Het Dharmendrabhai Dhinoja</div>
 <ul class="styled-list">
-<li>Memory hierarchy</li>
-<li>SRAM vs DRAM</li>
-<li>Memory latency difference</li>
-<li>Performance comparison with NUMA & UMA</li>
-<li>Bottlenecks</li>
+<li v-click>Memory hierarchy</li>
+<li v-click>SRAM vs DRAM</li>
+<li v-click>Memory latency difference</li>
+<li v-click>Performance comparison with NUMA & UMA</li>
+<li v-click>Bottlenecks</li>
 </ul>
 </div>
 </div>
@@ -208,16 +203,16 @@ transition: slide-left
 <div style="position: absolute; top: -8px; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #00f0ff, transparent);"></div>
 <div style="padding-top: 1.5rem;">
 <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.8rem;">
-<span class="tag tag-cyan">Unit 4</span>
+<span v-click class="tag tag-cyan">Unit 4</span>
 </div>
-<h2 style="font-family: var(--slidev-font-sans); font-size: 1.1rem; font-weight: 600; color: rgba(0,240,255,0.9); margin-bottom: 0.3rem;">OS Support, Scheduling and Applications</h2>
-<div style="font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: rgba(0,240,255,0.35); letter-spacing: 0.05em; margin-bottom: 1.2rem; font-style: italic;">Covered by Suyash Chandel</div>
+<h2 v-after style="font-family: var(--slidev-font-sans); font-size: 1rem; font-weight: 600; color: rgba(0,240,255,0.9); margin-bottom: 0.3rem;">OS Support, Scheduling and Applications</h2>
+<div v-after style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: rgba(0,240,255,0.35); letter-spacing: 0.05em; margin-bottom: 1.2rem; font-style: italic;">Covered by Suyash Chandel</div>
 <ul class="styled-list">
-<li>NUMA-aware Operating Systems</li>
-<li>Process and thread placement</li>
-<li>Memory allocation policies</li>
-<li>Role of DMA in NUMA</li>
-<li>Real world applications</li>
+<li v-click>NUMA-aware Operating Systems</li>
+<li v-click>Process and thread placement</li>
+<li v-click>Memory allocation policies</li>
+<li v-click>Role of DMA in NUMA</li>
+<li v-click>Real world applications</li>
 </ul>
 </div>
 </div>
@@ -241,26 +236,27 @@ transition: slide-down
 <div style="width: 40px; height: 1px; background: rgba(0,240,255,0.2); margin-top: 4px;"></div>
 </div>
 </div>
-<GlitchText text="Workflow and Resources" tag="h1" style="font-size: 2.1rem; font-weight: 700; color: #e8e8f0; margin-bottom: 0.3rem;" />
+<GlitchText text="Workflow and Resources" tag="h1" style="font-size: 2rem; font-weight: 700; color: #e8e8f0; margin-bottom: 0.3rem;" />
 <div style="width: 80px; height: 1.5px; background: linear-gradient(90deg, #00f0ff, #b400ff, transparent); margin: 0.8rem 0;"></div>
 
 <div style="display: grid; grid-template-columns: 1fr 1px 1fr; gap: 2rem; flex: 1; overflow: hidden;">
 <div style="position: relative; overflow-y: auto;">
 <div style="position: absolute; top: -8px; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #00f0ff, transparent);"></div>
 <div style="padding-top: 1rem;">
-<div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
-<span class="tag tag-cyan">Workflow</span>
-</div>
-<h2 style="font-family: var(--slidev-font-sans); font-size: 0.95rem; font-weight: 600; color: rgba(0,240,255,0.9); margin-bottom: 0.4rem;">Topics to be covered in order:</h2>
-<ul class="styled-list" style="font-size: 0.8rem;">
-<li style="margin-bottom: 0.3rem;">Prerequisite: Understanding of basic CSA and virtual memory concepts</li>
-<li style="margin-bottom: 0.3rem;">Introduction to parallelism</li>
-<li style="margin-bottom: 0.3rem;">Shortcomings of traditional UMA</li>
-<li style="margin-bottom: 0.3rem;">Architecture behind NUMA</li>
-<li style="margin-bottom: 0.3rem;">Memory placement policies</li>
-<li style="margin-bottom: 0.3rem;">Possible optimizations</li>
-<li style="margin-bottom: 0.3rem;">Performance impacts</li>
-<li style="margin-bottom: 0.3rem;">Applications in systems</li>
+
+<h2 v-click style="font-family: var(--slidev-font-sans); font-size: 1rem; font-weight: 600; color: rgba(0,240,255,0.9); margin-bottom: 0.4rem;">Workflow</h2>
+
+<div v-click style="color: var(--c-text-dim); font-size: 0.85rem; margin-bottom: 0.4rem;">Topics to be covered in order:</div>
+<ul class="styled-list">
+
+<li v-click style="margin-bottom: 0.3rem;">Prerequisite: Understanding of basic CSA and virtual memory concepts</li>
+<li v-click style="margin-bottom: 0.3rem;">Introduction to parallelism</li>
+<li v-click style="margin-bottom: 0.3rem;">Shortcomings of traditional UMA</li>
+<li v-click style="margin-bottom: 0.3rem;">Architecture behind NUMA</li>
+<li v-click style="margin-bottom: 0.3rem;">Memory placement policies</li>
+<li v-click style="margin-bottom: 0.3rem;">Possible optimizations</li>
+<li v-click style="margin-bottom: 0.3rem;">Performance impacts</li>
+<li v-click style="margin-bottom: 0.3rem;">Applications in systems</li>
 </ul>
 </div>
 </div>
@@ -268,15 +264,13 @@ transition: slide-down
 <div style="position: relative; overflow-y: auto;">
 <div style="position: absolute; top: -8px; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #b400ff, transparent);"></div>
 <div style="padding-top: 1rem;">
-<div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
-<span class="tag tag-purple">References</span>
-</div>
-<h2 style="font-family: var(--slidev-font-sans); font-size: 0.95rem; font-weight: 600; color: rgba(180,0,255,0.9); margin-bottom: 0.6rem;">Sources</h2>
-<div style="color: var(--c-text-dim); font-size: 0.65rem; line-height: 1.6;">
-<div style="margin-bottom: 0.5rem; padding-left: 0.8rem; border-left: 2px solid rgba(180,0,255,0.2);">Thomas, Gael. "Non uniform memory access", Universite Paris-Saclay.</div>
-<div style="margin-bottom: 0.5rem; padding-left: 0.8rem; border-left: 2px solid rgba(0,240,255,0.2);">Lamater, Christopher. "NUMA (Non-Uniform Memory Access): An Overview", ResearchGate.</div>
-<div style="margin-bottom: 0.5rem; padding-left: 0.8rem; border-left: 2px solid rgba(255,0,60,0.2);">Unknown Author(s). "numa(7) - Linux manual page", Linux/UNIX system programming training.</div>
-<div style="margin-bottom: 0.5rem; padding-left: 0.8rem; border-left: 2px solid rgba(180,0,255,0.2);">van Riel, Rik. "Automatic NUMA Balancing", Red Hat.</div>
+
+<h2 v-click style="font-family: var(--slidev-font-sans); font-size: 1rem; font-weight: 600; color: rgba(180,0,255,0.9); margin-bottom: 0.6rem;">Sources</h2>
+<div style="color: var(--c-text-dim); font-size: 0.85rem; line-height: 1.6;">
+<div v-click style="margin-bottom: 0.5rem; padding-left: 0.8rem; border-left: 2px solid rgba(180,0,255,0.2);">Thomas, Gael. "Non uniform memory access", Universite Paris-Saclay.</div>
+<div v-click style="margin-bottom: 0.5rem; padding-left: 0.8rem; border-left: 2px solid rgba(0,240,255,0.2);">Lamater, Christopher. "NUMA (Non-Uniform Memory Access): An Overview", ResearchGate.</div>
+<div v-click style="margin-bottom: 0.5rem; padding-left: 0.8rem; border-left: 2px solid rgba(255,0,60,0.2);">Unknown Author(s). "numa(7) - Linux manual page", Linux/UNIX system programming training.</div>
+<div v-click style="margin-bottom: 0.5rem; padding-left: 0.8rem; border-left: 2px solid rgba(180,0,255,0.2);">van Riel, Rik. "Automatic NUMA Balancing", Red Hat.</div>
 </div>
 </div>
 </div>
@@ -286,7 +280,7 @@ transition: slide-down
 </div>
 
 ---
-transition: slide-down
+transition: slide-up
 ---
 
 <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden; background: #050508; z-index: 10;">
@@ -298,31 +292,31 @@ transition: slide-down
 <div style="width: 120px; height: 1.5px; background: linear-gradient(90deg, transparent, #00f0ff, #ff003c, transparent); margin: 1rem auto;"></div>
 
 <div style="text-align: left; max-width: 650px; margin-top: 1rem;">
-<div style="color: var(--c-text-dim); font-size: 0.8rem; margin-bottom: 0.8rem;">In essence,</div>
+<div v-click style="color: var(--c-text-dim); font-size: 0.85rem; margin-bottom: 0.8rem;">In essence,</div>
 
 <div style="margin-bottom: 1rem;">
 <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
-<span class="tag tag-cyan">Why NUMA?</span>
+<span v-click class="tag tag-cyan">Why NUMA?</span>
 </div>
-<div style="color: var(--c-text-dim); font-size: 0.75rem; margin-bottom: 0.4rem;">NUMA is worth researching about by virtue of being:</div>
-<ul class="styled-list" style="font-size: 0.8rem;">
-<li style="margin-bottom: 0.2rem;">An interesting application of multiprocessing</li>
-<li style="margin-bottom: 0.2rem;">Utilized in modern operating systems</li>
-<li style="margin-bottom: 0.2rem;">Openly accessible and documented</li>
-<li style="margin-bottom: 0.2rem;">A relatively easy-to-understand implementation</li>
+<div v-after style="color: var(--c-text-dim); font-size: 0.85rem; margin-bottom: 0.4rem;">NUMA is worth researching about by virtue of being:</div>
+<ul class="styled-list">
+<li v-click style="margin-bottom: 0.2rem;">An interesting application of multiprocessing</li>
+<li v-click style="margin-bottom: 0.2rem;">Utilized in modern operating systems</li>
+<li v-click style="margin-bottom: 0.2rem;">Openly accessible and documented</li>
+<li v-click style="margin-bottom: 0.2rem;">A relatively easy-to-understand implementation</li>
 </ul>
 </div>
 
 <div>
 <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
-<span class="tag tag-red">Coverage</span>
+<span v-click class="tag tag-red">Coverage</span>
 </div>
-<div style="color: var(--c-text-dim); font-size: 0.75rem; margin-bottom: 0.4rem;">Following topics are to be covered:</div>
+<div v-after style="color: var(--c-text-dim); font-size: 0.85rem; margin-bottom: 0.4rem;">Following topics are to be covered:</div>
 <ul class="styled-list" style="font-size: 0.8rem;">
-<li style="margin-bottom: 0.2rem;">Architecture Overview and System Model</li>
-<li style="margin-bottom: 0.2rem;">Hardware Organisation and Interconnection</li>
-<li style="margin-bottom: 0.2rem;">Memory Hierarchy and Performance</li>
-<li style="margin-bottom: 0.2rem;">OS Support, Scheduling and Applications</li>
+<li v-click style="margin-bottom: 0.2rem;">Architecture Overview and System Model</li>
+<li v-click style="margin-bottom: 0.2rem;">Hardware Organisation and Interconnection</li>
+<li v-click style="margin-bottom: 0.2rem;">Memory Hierarchy and Performance</li>
+<li v-click style="margin-bottom: 0.2rem;">OS Support, Scheduling and Applications</li>
 </ul>
 </div>
 </div>
