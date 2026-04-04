@@ -16,17 +16,26 @@ fonts:
   mono: "JetBrains Mono"
 ---
 
-1st slide
-
 ---
-transition: slide-up
+layout: default
 ---
 
-<CustomVideoPlayer controls :pause="[1, 1, 1, 'end']" autoplay src="https://samplelib.com/mp4/sample-5s.mp4"
->
-<!-- <source  type="video/mp4"/> -->
-</CustomVideoPlayer>
+# Video Player Test
+
+<div class="w-120 h-80 mx-auto border border-gray-500/30 rounded-lg overflow-hidden shadow-xl">
+  <CustomVideoPlayer 
+    controls 
+    :pause="[1, 1, 1]" 
+    autoplay 
+    src="https://vjs.zencdn.net/v/oceans.mp4"
+  />
+</div>
+
+<div class="mt-4 text-center text-sm opacity-50">
+  This video should pause at 1s, 2s, and 3s. Press Space or Click to advance.
+</div>
 
 ---
+layout: end
+---
 
-last slide

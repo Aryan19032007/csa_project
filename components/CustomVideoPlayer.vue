@@ -1,158 +1,149 @@
 <script setup lang="ts">
-import { and } from '@vueuse/math'
-import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
-import { useNav } from '../node_modules/@slidev/client/composables/useNav'
-import { useSlideContext } from '../node_modules/@slidev/client/context'
-import { resolvedClickMap } from "../node_modules/@slidev/client/modules/v-click" //'../../modules/v-click'
+import { computed, onMounted, ref, watch } from 'vue'
+import { useNav } from '@slidev/client'
 
 const props = defineProps<{
-    autoplay?: boolean | 'once'
-    autoreset?: 'slide' | 'click'
-    poster?: string
-    printPoster?: string
-    timestamp?: string | number
-    printTimestamp?: string | number | 'last'
-    controls?: boolean
-    pause?: (number | 'end')[]
+  src?: string
+  autoplay?: boolean | 'once'
+  autoreset?: 'slide' | 'click'
+  poster?: string
+  printPoster?: string
+  timestamp?: string | number
+  printTimestamp?: string | number | 'last'
+  controls?: boolean
+  pause?: (number | 'end')[]
+  muted?: boolean
 }>()
 
-const printPoster = computed(() => props.printPoster ?? props.poster)
-const printTimestamp = computed(() => props.printTimestamp ?? props.timestamp ?? 0)
+const video = ref<HTMLVideoElement>()
+const { clicks, currentSlideNo, isPrintMode } = useNav()
+const playedOnce = ref(false)
 
-const { $slidev, $renderContext, $route } = useSlideContext()
-const { isPrintMode } = useNav()
+// Determine if we should be playing or just showing a static frame
+const isInteractive = computed(() => !isPrintMode.value)
 
-const noPlay = computed(() => isPrintMode.value || !['slide', 'presenter'].includes($renderContext.value))
-
-const video = ref<HTMLMediaElement>()
-const played = ref(false)
-
-const currentInterval = ref<any>(null)
-const pauseTimestamps = computed(() => {
-    if (!props.pause || props.pause.length === 0)
-        return null
-
-    const segments: (number | 'end')[] = [0]
-    for (const segment of props.pause) {
-        const last = segments[segments.length - 1]
-        if (segment === 'end') {
-            segments.push('end')
-        }
-        else {
-            const lastNum = typeof last === 'number' ? last : 0
-            segments.push(lastNum + segment)
-        }
+// Parse pause timestamps into absolute stop points
+const stopPoints = computed(() => {
+  if (!props.pause) return []
+  const points: (number | 'end')[] = []
+  let cumulative = 0
+  for (const p of props.pause) {
+    if (p === 'end') {
+      points.push('end')
+    } else {
+      cumulative += p
+      points.push(cumulative)
     }
-    return segments
+  }
+  return points
 })
 
-const pauseIndex = ref(1)
-const userTriggeredPlay = ref(false)
+const currentPauseIndex = ref(0)
 
-function playNextSegment() {
-    if (!pauseTimestamps.value || !video.value) {
-        video.value?.play()
-        return
-    }
+// Monitor video time to pause at stop points
+function handleTimeUpdate() {
+  if (!video.value || currentPauseIndex.value >= stopPoints.value.length) return
 
-    const from = pauseTimestamps.value[pauseIndex.value - 1]
-    const to = pauseTimestamps.value[pauseIndex.value]
-
-    if (from == null || to == null)
-        return
-
-    if (typeof from === 'number')
-        video.value.currentTime = from
-
-    userTriggeredPlay.value = false
-    video.value.play()
-
-    if (to === 'end') {
-        pauseIndex.value++
-        return
-    }
-
-    if (currentInterval.value)
-        clearInterval(currentInterval.value)
-
-    currentInterval.value = setInterval(() => {
-        if (!video.value)
-            return
-        if (video.value.currentTime >= to) {
-            video.value.pause()
-            clearInterval(currentInterval.value)
-            pauseIndex.value++
-        }
-    }, 100)
+  const nextStop = stopPoints.value[currentPauseIndex.value]
+  if (typeof nextStop === 'number' && video.value.currentTime >= nextStop) {
+    video.value.pause()
+    video.value.currentTime = nextStop // Snap to exact point
+    currentPauseIndex.value++
+  }
 }
 
-function onPlay() {
-    played.value = true
-
-    if (pauseTimestamps.value && userTriggeredPlay.value && video.value) {
-        userTriggeredPlay.value = false
-        video.value.pause()
-        setTimeout(() => {
-            playNextSegment()
-        }, 0)
-    }
+// Play the next segment
+async function playNext() {
+  if (!video.value) return
+  
+  try {
+    await video.value.play()
+  } catch (err) {
+    console.error("Video play failed:", err)
+  }
 }
+
+// Watch for click changes to advance video
+watch(clicks, (newClicks, oldClicks) => {
+  if (newClicks > oldClicks) {
+    playNext()
+  }
+})
+
+// Handle slide entry/exit
+watch(currentSlideNo, (newVal, oldVal) => {
+  if (!video.value) return
+
+  // Reset logic
+  if (props.autoreset === 'slide' || (props.autoreset === 'click' && newVal !== oldVal)) {
+    video.value.pause()
+    video.value.currentTime = Number(props.timestamp || 0)
+    currentPauseIndex.value = 0
+  }
+})
 
 onMounted(() => {
-    if (noPlay.value)
-        return
+  if (video.value && props.timestamp) {
+    video.value.currentTime = Number(props.timestamp)
+  }
 
-    const timestamp = +(props.timestamp ?? 0)
-    video.value!.currentTime = timestamp
-
-    const matchRoute = computed(() => !!$route && $route.no === $slidev?.nav.currentSlideNo)
-    const matchClick = computed(() => !!video.value && (resolvedClickMap.get(video.value)?.isShown?.value ?? true))
-    const matchRouteAndClick = and(matchRoute, matchClick)
-
-    watch(matchRouteAndClick, () => {
-        if (matchRouteAndClick.value) {
-            if (props.autoplay === true || (props.autoplay === 'once' && !played.value)) {
-                if (pauseTimestamps.value) {
-                    userTriggeredPlay.value = false
-                    playNextSegment()
-                }
-                else {
-                    video.value!.play()
-                }
-            }
-        }
-        else {
-            video.value!.pause()
-            if (currentInterval.value)
-                clearInterval(currentInterval.value)
-            if (props.autoreset === 'click' || (props.autoreset === 'slide' && !matchRoute.value)) {
-                video.value!.currentTime = timestamp
-                pauseIndex.value = 1
-                userTriggeredPlay.value = false
-            }
-        }
-    }, { immediate: true })
+  // Initial autoplay logic
+  if (props.autoplay && !isPrintMode.value) {
+    if (props.autoplay === 'once' && playedOnce.value) return
+    playNext()
+    playedOnce.value = true
+  }
 })
 
-onBeforeUnmount(() => {
-    if (currentInterval.value)
-        clearInterval(currentInterval.value)
-})
-
-function onLoadedMetadata(ev: Event) {
-    // The video may be loaded before component mounted
-    const element = ev.target as HTMLMediaElement
-    if (noPlay.value && (!printPoster.value || props.printTimestamp)) {
-        element.currentTime = printTimestamp.value === 'last'
-            ? element.duration
-            : +printTimestamp.value
-    }
+function onEnded() {
+  if (props.autoreset === 'slide' || props.autoreset === 'click') {
+    currentPauseIndex.value = 0
+  }
 }
 </script>
 
 <template>
-    <video ref="video" :poster="noPlay ? printPoster : props.poster" :controls="!noPlay && props.controls"
-        @play="onPlay" @loadedmetadata="onLoadedMetadata" @click="pauseTimestamps ? userTriggeredPlay = true : null">
-        <slot />
+  <div class="custom-video-container" :class="{ 'is-print': isPrintMode }">
+    <!-- 
+      Register clicks in Slidev. Each element with v-click tells Slidev 
+      that the slide has an additional 'step' before moving to the next slide.
+    -->
+    <div v-for="i in (pause?.length || 0)" :key="i" v-click class="hidden"></div>
+
+    <video
+      ref="video"
+      :src="src"
+      :poster="isPrintMode ? (printPoster || poster) : poster"
+      :controls="controls && isInteractive"
+      :muted="muted || autoplay !== undefined"
+      playsinline
+      class="w-full h-full object-cover"
+      @timeupdate="handleTimeUpdate"
+      @ended="onEnded"
+    >
+      <slot />
     </video>
+  </div>
 </template>
+
+<style scoped>
+.custom-video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: black;
+}
+
+video {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.is-print video {
+  pointer-events: none;
+}
+</style>
